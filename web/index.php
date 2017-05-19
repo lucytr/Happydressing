@@ -12,8 +12,8 @@ require('../vendor/autoload.php');
         include("Controleur/inscription.php");
 
         //include("Controleur/inscription.php"); // On utilise un controleur secondaire pour éviter d'avoir un fichier index.php trop gros
-    */
+    
 
 }
-
+*/
 ?>
