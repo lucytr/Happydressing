@@ -3,7 +3,7 @@ require('../vendor/autoload.php');
     /*require("Modele/connexion.php");*/
      /*require("Vue/commun.html");*/
 
- $dbopts = parse_url(getenv('DATABASE_URL'));
+ $dbopts = parse_url(getenv('postgres://zcddbxqvttkdwg:1c29bf6f57482e63f00101685e0019d10ac232cf4b22b5301c22da4be0bb2210@ec2-54-163-246-154.compute-1.amazonaws.com:5432/ddgdhkk7gmaiv9'));
 $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider('pdo'),
                array(
                 'pdo.server' => array(
