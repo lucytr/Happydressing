@@ -8,11 +8,11 @@ require('../vendor/autoload.php');
    
    /* if(!isset($_COOKIE["userID"])){ // L'utilisateur n'est pas connecté
         include("Controleur/connexion.php"); 
-        include("Controleur/inscription.php"); */
+        include("Controleur/inscription.php");
 
         //include("Controleur/inscription.php"); // On utilise un controleur secondaire pour éviter d'avoir un fichier index.php trop gros
     
 
-}
+}*/
 
 ?>
