@@ -15,5 +15,15 @@
     $db = new PDO("pgsql:host=$host;dbname=$dbname", "$user", "$pass");
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+try {
+    $dbh = new PDO("pgsql:host=$host;dbname=$dbname", "$user", "$pass");
+    foreach($dbh->query('SELECT * from test_table') as $row) {
+        print_r($row);
+    }
+    $dbh = null;
+} catch (PDOException $e) {
+    print "Erreur !: " . $e->getMessage() . "<br/>";
+    die();
+}
 
 ?>

@@ -2,6 +2,9 @@
 require('../vendor/autoload.php'); 
     require("Modele/connexion.php");
 
+
+
+
     /*
      require("Vue/commun.html");
    */
