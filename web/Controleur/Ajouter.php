@@ -1,6 +1,7 @@
 
    <?php
 
+include('../Ajoutphoto.php')
 
 
     if(isset($_POST['nom']) && isset($_POST['description']) && isset($_POST['prix']) && isset($_POST['taille']) && isset($_POST['ville']) && isset($_POST['idcategorie']) && isset($_POST['idmarque']) ){
