@@ -1,41 +1,56 @@
 <?php
+//include('test.php');
     // Controleur pour gérer le formulaire de connexion des utilisateurs
+ /*if (!isset($_COOKIE["token"])) {   */
     
-    if(isset($_GET['cible']) && $_GET['cible']=="verif") { // L'utilisateur vient de valider le formulaire de connexion
-        if(isset($_POST['mail']) && isset($_POST['mdp'])){ // L'utilisateur a rempli tous les champs du formulaire
-            include("Modele/utilisateurs.php");
-            $mail =htmlspecialchars($_POST['mail']);
-             $mdp =htmlspecialchars($_POST['mdp']);
+        
+
+        if(isset($_POST['mail']) && isset($_POST['mdp'])){ 
+          $cookiehash = sha1($_POST['mail']);
+           $cookie=setcookie("cookiehash",$cookiehash, time() + (3600 * 25),"/");
+           //echo($_COOKIE['cookiehash']);
             
+            /*if(isset($_GET['cible']) && $_GET['cible']=="verif") {*/
+                include("../Modele/connexion.php");
+                include("../Modele/utilisateurs.php");
 
-            $modeladmin = new Model();
-            $req= $modeladmin->mdp($db,$_POST['mail'],$_POST['mdp']);
-            //var_dump($req);
+                $mail =htmlspecialchars($_POST['mail']);
+                 $mdp =htmlspecialchars($_POST['mdp']);
+                $Newmdp = $Newmdp = crypt($mdp,'$5$rounds=5000$anexamplestringforsalt$');
 
+                $modeladmin = new ModelUti();
+                $req= $modeladmin->mdp($db,$_POST['mail'],$Newmdp);
+                var_dump($req);
+          
             //$modeladmin= new Model();
             //$admin = $modeladmin->selectById($db,$id_admin, $mdp);
             
-                if ($req['mail']= $mail && $req['mdp']==$mdp) {
-                    /*if ($res["mdp"]==$mdp) {
-                       //$data = Array("idUser" => $admin["id_admin"]);
-                       // $token = generateToken($data);
-                        //echo $token;
-                        //setcookie("token", $token, time() + (3600 * 25), "/");*/
-                        include("Vue/accueil.php");                          
-                } else {
-                    $message = "données incorrectes";
-                    include("Vue/connexion_erreur.php"); 
+                    if ($req['mail']== $mail && $req['mdp']==$Newmdp) {
+                     /*include("token.php");*/
+                       /*$data = Array("idUser" => $req["mail"]);
+                       $token = generateToken($data);
+                        echo $token;*/
 
-                }
+                        /*header ("Location : ../Vue/interfacemembre.html");*/
+                      
+                      echo "<script type='text/javascript'>document.location.replace('../Vue/interfacemembre.php');</script>";
+                     // echo " ok verif";
 
-        } else {
+                      
+                                             
+                    } else {
+                    
+                   
+                        echo '<script>alert("Erreur de mot de passe ou d \'identifiant");</script>';
+           
+                    }
+                    
 
-            $message = "Les données sont incorrectes";
-            include("Vue/connexion_erreur.php");                          
+           }/* else {
 
-        }
+                include("../Vue/connexion_erreur.php"); 
+            }  */                       
+
         
-        //echo $message;
-    }
 
 ?>

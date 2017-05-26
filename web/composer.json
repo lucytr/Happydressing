@@ -1,0 +1,6 @@
+{
+    "require": {
+        "admad/cakephp-jwt-auth": "^2.0",
+        "firebase/php-jwt": "^4.0"
+    }
+}
