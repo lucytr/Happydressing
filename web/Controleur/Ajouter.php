@@ -53,14 +53,14 @@
                 $res3= $req->AjoutProd($db, $_POST['nom'], $_POST['description'] ,$prix, $taille, $_POST['ville'],$_POST['idcategorie'],$_POST['idmarque'] ,$id_pers);
 
                // var_dump($res3);
-        include('../vue/Ajoutphoto.php');
-          
+                echo "<script type='text/javascript'>document.location.replace('../Vue/interfacemembre.php');</script>";
+
                
-       }/*else{
+       }else{
 
       echo "<script type='text/javascript'>document.location.replace('../Vue/interfacemembre.php');</script>";
               
-    }*/
+    }
 
     ?>
 </body>
