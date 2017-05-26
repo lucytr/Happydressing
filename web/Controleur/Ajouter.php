@@ -1,7 +1,6 @@
 
    <?php
 
-include('../Vue/Ajoutphoto.php')
 
 
     if(isset($_POST['nom']) && isset($_POST['description']) && isset($_POST['prix']) && isset($_POST['taille']) && isset($_POST['ville']) && isset($_POST['idcategorie']) && isset($_POST['idmarque']) ){
@@ -54,7 +53,8 @@ include('../Vue/Ajoutphoto.php')
                 $res3= $req->AjoutProd($db, $_POST['nom'], $_POST['description'] ,$prix, $taille, $_POST['ville'],$_POST['idcategorie'],$_POST['idmarque'] ,$id_pers);
 
                // var_dump($res3);
-                echo "<script type='text/javascript'>document.location.replace('../Vue/interfacemembre.php');</script>";
+                /*echo "<script type='text/javascript'>document.location.replace('../Vue/interfacemembre.php');</script>";*/
+                echo "<script type='text/javascript'>document.location.replace('../Vue/AjoutPhoto.php');</script>";
 
                
        }else{
