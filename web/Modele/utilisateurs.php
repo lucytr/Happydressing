@@ -9,7 +9,7 @@
             $statement= $db->prepare($sql);
             $statement->execute(array(':mail'=> $mail,':mdp'=>$mdp));
              $req=  $statement->fetch();
-             var_dump($req);
+             //var_dump($req);
               return $req;
         }
         
@@ -21,7 +21,7 @@
              $req= $db->query("INSERT INTO Personne (nom,prenom,mail,mdp,id_pers) VALUES('$nom','$prenom', '$mail', '$mdp','$id_pers')");
               
 
-              var_dump($req);
+              //var_dump($req);
             }
             catch(PDOException $e){
              echo($e->getMessage());
@@ -35,7 +35,7 @@
              $req= $db->query("INSERT INTO produit (nom,description,prix,taille,ville,idcategorie,idmarque,id_pers)
 
               VALUES('$nom','$description', '$prix','$taille', '$ville','$idcategorie','$idmarque','$id_pers')");
-             var_dump($req);
+             //var_dump($req);
 
             
         } 
@@ -58,7 +58,7 @@
             $statement->execute(array(':idmarque' => $idmarque));
              $req=  $statement->fetch();
              return $req;
-            var_dump($req);
+            //var_dump($req);
           
       } 
        
@@ -83,17 +83,17 @@
             $statement= $db->prepare($sql);
             $statement->execute(array(':mail'=> $mail));
              $req=  $statement->fetch();
-             var_dump($req);
+             //var_dump($req);
               return $req;
         }
 
         function verifmail($db,$mail){
             
             $sql = "SELECT * FROM personne WHERE mail = '$mail' ";
-        $statement= $db->query($sql);
-        $req= $statement->fetch();
-        var_dump($req['mail']);
-        return $req;
+          $statement= $db->query($sql);
+          $req= $statement->fetch();
+          //var_dump($req['mail']);
+          return $req;
 
         }
 
@@ -104,7 +104,7 @@
         $statement= $db->prepare($sql);
         $statement->execute(array(':id_pers'=> $id_pers));
         $req= $statement->fetch();
-        var_dump($req);
+       // var_dump($req);
         return $req;
 
 
@@ -121,7 +121,7 @@
 
     function ModifProd($db,$nom,$description,$prix,$taille,$ville,$idcategorie,$idmarque, $id_produit){
                        $req= $db->query("UPDATE produit SET nom= '$nom',description ='$description',prix='$prix',taille='$taille',ville ='$ville',idcategorie='$idcategorie',idmarque='$idmarque' where id_produit = '$id_produit'");
-             var_dump($req);
+            // var_dump($req);
     }
  
     function inventaire($db,$id_pers){
@@ -130,7 +130,7 @@
             $statement= $db->prepare($sql);
             $statement->execute(array(':nom'=> $nom,':description'=> $description,':prix'=> $prix,':taille'=> $taille,':ville'=> $ville,':idcategorie'=> $idcategorie,':idmarque'=> $idmarque, ':id_pers'=> $id_pers));
              $req=  $statement->fetch();
-             var_dump($req);
+             //var_dump($req);
               return $req;
 
     }
@@ -184,15 +184,18 @@
         return $req;
     }
 
-      function triefemme(){
+      function triefemme($db){
 
-          $sql = "SELECT * FROM produit WHERE id_produit = '$id' AND idcategorie='FEMME'";
+          $sql = "SELECT * FROM produit WHERE idcategorie='FEMME'";
         $statement= $db->query($sql);
         $req= $statement->fetch();
         //var_dump($req);
         return $req;
 
       }
+
+
+
 
   }
 ?>

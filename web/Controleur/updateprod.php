@@ -23,8 +23,7 @@ if(isset($_POST['id_produit']) &&isset($_POST['nom']) && isset($_POST['descripti
                 $req=new ModelUti();
                 $res=$req->getid($db,$id_pers);
 
-                 //$verifmail = new ModelUti();
-                 // $req->$verifmail->verifid($db,$id_pers);
+                 
                   
 
                     if ($id_pers== $res['id_pers']){

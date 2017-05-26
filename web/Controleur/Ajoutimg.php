@@ -31,7 +31,7 @@ if ($_FILES['image']['error'] > 0) {
     
 
                     if (move_uploaded_file($_FILES["image"]["tmp_name"], $repertoireDestination.$nomDestination)) {
-                       // echo "Le fichier temporaire ".$_FILES["image"]["tmp_name"]. " a été déplacé vers ".$repertoireDestination.$nomDestination;
+                      
 
                          Img::creerMin($repertoireDestination.$nomDestination, '../fichier/min',$nomDestination, 320 ,200);
 

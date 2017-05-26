@@ -6,7 +6,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
-  <link rel="stylesheet" type="text/css" href="cssAjout.css"> 
+  <link rel="stylesheet" type="text/css" href="css/cssAjout.css"> 
 
 
 <body>
@@ -14,7 +14,7 @@
 include ('navbarmembre.html');
 ?>
 
-<form method="post"  enctype="multipart/form-data">
+<form method="post" action ='../Controleur/Ajoutimg.php' enctype="multipart/form-data">
 <!-- Form Name -->
 <legend>Ajout d'un article </legend>
 

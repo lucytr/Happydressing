@@ -1,8 +1,6 @@
 
    <?php
-//if(isset($_GET['cible']) && $_GET['cible']=="Ajout") {    
 
-require('../vue/Ajoutphoto.php');
 
 
     if(isset($_POST['nom']) && isset($_POST['description']) && isset($_POST['prix']) && isset($_POST['taille']) && isset($_POST['ville']) && isset($_POST['idcategorie']) && isset($_POST['idmarque']) ){
@@ -25,8 +23,7 @@ require('../vue/Ajoutphoto.php');
                 $req=new ModelUti();
                 $res=$req->getid($db,$id_pers);
 
-                 //$verifmail = new ModelUti();
-                 // $req->$verifmail->verifid($db,$id_pers);
+                 
                   
 
                     if ($id_pers== $res['id_pers']){
@@ -38,16 +35,16 @@ require('../vue/Ajoutphoto.php');
                               if ($res1 == false){ 
                                    $req=new ModelUti();
                                 $res2= $req->AjoutMarque($db, $_POST['idmarque']);
-                                  var_dump($res2);
+                                  //var_dump($res2);
                 
-                               echo ' ok ajout marque';
+                               //echo ' ok ajout marque';
 
                              } else{ 
-                                echo'Marque existe ';
+                                //echo'Marque existe ';
                              }
                     }else{
 
-                      echo' Erreur de mail';
+                      //echo' Erreur de mail';
                     }
 
 
@@ -55,19 +52,15 @@ require('../vue/Ajoutphoto.php');
                 $req=new ModelUti();
                 $res3= $req->AjoutProd($db, $_POST['nom'], $_POST['description'] ,$prix, $taille, $_POST['ville'],$_POST['idcategorie'],$_POST['idmarque'] ,$id_pers);
 
-                var_dump($res3);
-                include("../Vue/ajoutok.php");
+               // var_dump($res3);
+        include('../vue/Ajoutphoto.php');
           
                
-       }else{
+       }/*else{
 
-         include("../Vue/ajoutpasok.php");
+      echo "<script type='text/javascript'>document.location.replace('../Vue/interfacemembre.php');</script>";
               
-    }/*else{
-
-  echo'Erreur'
-}
-     */ 
+    }*/
 
     ?>
 </body>
