@@ -54,7 +54,7 @@
 
                // var_dump($res3);
                 /*echo "<script type='text/javascript'>document.location.replace('../Vue/interfacemembre.php');</script>";*/
-                echo "<script type='text/javascript'>document.location.replace('./Vue/AjoutPhoto.php');</script>";
+                echo "<script type='text/javascript'>document.location.replace('../Vue/AjoutPhoto.php');</script>";
 
                
        }else{
